@@ -3,19 +3,20 @@ import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+from dotenv import load_dotenv
 
-# ------------------------------
-# 🚀 1. Titre et description
-# ------------------------------
+# Clé API depuis variable d'environnement
+API_KEY = st.secrets["NASA_API_KEY"]
+
+
+
+# Titre et description
+
 st.set_page_config(page_title="NASA Asteroid Tracker", layout="centered")
 st.title("NASA Asteroid Tracker")
 st.write("Visualisation des astéroïdes proches de la Terre à partir des données publiques de la NASA.")
 
-# ------------------------------
-# 🌍 2. Paramètres utilisateur
-# ------------------------------
-# Clé API depuis variable d'environnement, fallback sur DEMO_KEY
-API_KEY = os.getenv("NASA_API_KEY", "DEMO_KEY")
+# Paramètres utilisateur
 
 st.info("""
 ℹ️ Pour des volumes de données plus importants, utilisez votre clé NASA personnelle.
@@ -26,9 +27,8 @@ Créez votre clé sur [NASA API](https://api.nasa.gov)
 start_date = st.date_input("Date de début", pd.to_datetime("2025-08-20"))
 end_date = st.date_input("Date de fin", pd.to_datetime("2025-08-25"))
 
-# ------------------------------
-# 📡 3. Récupération des données NASA
-# ------------------------------
+# Récupération des données NASA
+
 url = f"https://api.nasa.gov/neo/rest/v1/feed?start_date={start_date}&end_date={end_date}&api_key={API_KEY}"
 
 try:
@@ -48,15 +48,13 @@ try:
 
     df = pd.DataFrame(asteroid_list)
 
-    # ------------------------------
-    # 📊 4. Tableau interactif
-    # ------------------------------
+    # Tableau interactif
+
     st.subheader("📋 Données brutes")
     st.dataframe(df)
 
-    # ------------------------------
-    # 📈 5. Visualisation
-    # ------------------------------
+    # Visualisation
+
     st.subheader("📈 Taille des astéroïdes par date")
     fig, ax = plt.subplots()
     colors = df["hazardous"].map({True: "red", False: "green"})
