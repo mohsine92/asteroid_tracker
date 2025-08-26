@@ -1,3 +1,17 @@
+# Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Environnement virtuel
+venv/
+env/
+.venv/
+.env/
+
+# Streamlit secrets (clé API)
 .streamlit/secrets.toml
+
+# Système / macOS
+.DS_Store

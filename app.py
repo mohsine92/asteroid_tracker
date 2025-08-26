@@ -2,7 +2,6 @@ import streamlit as st
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
-import os
 
 # Clé API depuis variable d'environnement
 API_KEY = st.secrets["NASA_API_KEY"]
@@ -19,7 +18,7 @@ st.write("Visualisation des astéroïdes proches de la Terre à partir des donn�
 
 st.info("""
 ℹ️ Pour des volumes de données plus importants, utilisez votre clé NASA personnelle.
-DEMO_KEY : limité à 30 requêtes/h et 1000/jour.
+La Key actuelle est limité à 30 requêtes/h et 1000/jour.
 Créez votre clé sur [NASA API](https://api.nasa.gov)
 """)
 
