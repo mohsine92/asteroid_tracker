@@ -11,6 +11,7 @@ The goal is to explore how data science, visualization, and interactive applicat
 
 By integrating real NASA APIs, data exploitation techniques, and interactive visualizations, this project bridges the gap between raw astrophysical data and human interpretation, contributing to the vision of open scientific exploration and collaborative research.</p>
 
+Data provided by NASA Near Earth Object Web Service (NeoWs) (https://api.nasa.gov/).
 
 ## Research Methodology
 
