@@ -3,7 +3,6 @@ import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
-from dotenv import load_dotenv
 
 # Clé API depuis variable d'environnement
 API_KEY = st.secrets["NASA_API_KEY"]
