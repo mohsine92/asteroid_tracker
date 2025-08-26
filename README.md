@@ -1,7 +1,7 @@
 <h1>Asteroid Tracker</h1>
 
-<img src="https://github.com/user-attachments/assets/adf4bb28-202c-44cf-bb94-da38d25bc9cd" width="488" />
-<img src="https://github.com/user-attachments/assets/9b0bc311-42e2-4a98-9182-45003137669d" width="360" />
+<img src="https://github.com/user-attachments/assets/adf4bb28-202c-44cf-bb94-da38d25bc9cd" width="410" />
+<img src="https://github.com/user-attachments/assets/9b0bc311-42e2-4a98-9182-45003137669d" width="300" />
 
 <h2>Introduction</h2>
 
@@ -12,6 +12,15 @@ The goal is to explore how data science, visualization, and interactive applicat
 By integrating real NASA APIs, data exploitation techniques, and interactive visualizations, this project bridges the gap between raw astrophysical data and human interpretation, contributing to the vision of open scientific exploration and collaborative research.</p>
 
 
+## Research Methodology
+
+This project follows a scientific approach :
+
+- Define the research question.
+- Acquire and preprocess NASA NEO datasets.
+- Model asteroid characteristics and potential risks.
+- Visualize data for interpretation and accessibility.
+- Contribute to research by enabling reproducible and open exploration.
 
 <h2>Features</h2>
 <ul>
@@ -23,7 +32,7 @@ By integrating real NASA APIs, data exploitation techniques, and interactive vis
 
 <h2>Technologies</h2>
 <ul>
-  <li>Python 3.12+</li>
+  <li>Python</li>
   <li>Streamlit for the web interface</li>
   <li>Requests for API calls</li>
   <li>Pandas for data manipulation</li>
@@ -56,7 +65,7 @@ venv\Scripts\activate     # Windows</code></pre>
   </li>
 </ol>
 
-<h2>📂 Project Structure</h2>
+<h2>Project Structure</h2>
 <pre><code>asteroid_tracker/
 ├── app.py
 ├── requirements.txt
