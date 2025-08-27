@@ -1,6 +1,6 @@
 <h1>Asteroid Tracker</h1>
+<img src="https://github.com/user-attachments/assets/2fc1fdf1-7682-4c2f-8742-2ec56b36bb54" width="440"/>
 
-<img src="https://github.com/user-attachments/assets/adf4bb28-202c-44cf-bb94-da38d25bc9cd" width="410" />
 <img src="https://github.com/user-attachments/assets/9b0bc311-42e2-4a98-9182-45003137669d" width="300" />
 
 <h2>Introduction</h2>
