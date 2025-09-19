@@ -20,6 +20,8 @@ import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime as dt
+import numpy as np
+
 
 
 # API key from environment variable
@@ -28,12 +30,17 @@ API_KEY = st.secrets["NASA_API_KEY"]
 
 
 # Title and description
-
-st.set_page_config(page_title="Asteroid Tracker", layout="centered")
-st.title("Asteroid Tracker")
+st.set_page_config(page_title="NEO Watch - Asteroid Tracker Dashboard", layout="centered")
+st.title("NEO Watch - Asteroid Tracker Dashboard")
 st.write("Visualization of near-Earth asteroids based on public data from NASA.")
+st.write("This project was born out of my passion for the engineering behind space observation tools. It stems from a desire to understand, model, represent, and make accessible real astronomical phenomena, particularly near-Earth objects (NEOs).")
+st.write("This project is a scaled-down version of the NEO Surveyor mission. NEO Surveyor is the first space telescope designed specifically to detect potentially hazardous asteroids and comets.")
+st.markdown('<a href="mailto:mohsine.essat@gmail.com">Contact me !</a>', unsafe_allow_html=True)
+st.link_button("Linkedin", "https://www.linkedin.com/in/mohsine-essat/")
+st.link_button("GitHub", "https://github.com/mohsine92/asteroid_tracker")
 
-# User settings
+
+# Information
 
 st.info("""
 Note :  For larger data volumes, use your personal NASA key. Create your key on (https://api.nasa.gov)
@@ -47,7 +54,6 @@ end_date = st.date_input("To", pd.to_datetime("2025-08-22"))
 
 
 # Récupération des données NASA
-
 url = f"https://api.nasa.gov/neo/rest/v1/feed?start_date={start_date}&end_date={end_date}&api_key={API_KEY}"
 
 try:
@@ -68,12 +74,14 @@ try:
     df = pd.DataFrame(asteroid_list)
 
     # Interactive whiteboard
-
     st.subheader("Raw data")
     st.dataframe(df)
 
     # Visualization
 
+## futur polar plot ###
+
+    # Date of visit - Diameter/Metre
     st.subheader("Asteroid size by date")
     fig, ax = plt.subplots()
     colors = df["hazardous"].map({True: "red", False: "green"})
@@ -86,14 +94,13 @@ try:
 
 
     # Alerts
-
-    st.subheader("Dangerous asteroids detected")
+    st.subheader("Close approach of asteroids detected")
     dangerous = df[df["hazardous"] == True]
     if not dangerous.empty:
-        st.error(f"{len(dangerous)} dangerous asteroids detected ⚠️")
+        st.markdown(f"{len(dangerous)} asteroids passing safely close to Earth have been detected.")
         st.table(dangerous[["date", "name", "diameter_m"]])
     else:
-        st.success("No dangerous asteroids during this period ✅")
+        st.success("No asteroids near Earth during this period.")
 
 except requests.exceptions.HTTPError:
     if response.status_code == 403:
